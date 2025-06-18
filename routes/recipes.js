@@ -64,7 +64,7 @@ const path = require('path');
 // Set up storage destination and filename using recipe ID
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../public/images/recipes'));
+    cb(null, path.join(__dirname, '../public/image/recipes'));
   },
   filename: function (req, file, cb) {
     cb(null, `${req.params.id}.jpg`);
@@ -156,7 +156,7 @@ router.post('/upload-pic/:id', upload.single('image'), async (req, res) => {
 });
 
 const fs = require('fs');
-const imagePath = path.join(__dirname, '../public/images/recipes');
+const imagePath = path.join(__dirname, '../public/image/recipes');
 
 /** DELETE: Remove a Recipe */
 router.delete('/:id', async (req, res) => {
